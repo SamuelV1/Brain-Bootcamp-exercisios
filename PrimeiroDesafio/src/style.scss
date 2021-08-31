@@ -1,0 +1,211 @@
+
+/*Um reset padrão*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+    font-family: 'Kanit', sans-serif;
+    word-break: break-all;
+}
+ ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/*responsabilidade pro header*/
+@media(max-width: 660px){
+    #Log{
+        display: none;
+    }
+}
+header{
+    background-color: #ffff64;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    h1{
+        font-size: 1.8em;
+    }
+    #logo{
+        :hover{
+            cursor: pointer;
+        }
+        svg{
+            height: 1.5em;
+            width: 126px;
+            
+        }
+    }
+    .Register{
+        display: flex;
+    }
+    
+}
+
+@media(max-width: 660px){
+    .Menu{
+        display: none;
+    }
+    .TopArtist{
+        display: none;
+    }
+}
+.Menu{
+    background-color: #121212;
+    color: #ffffff;
+    width: 100%;
+    .MenuLinks{
+        
+        display: flex;
+        justify-content: center;
+        font-weight: bolder;
+        align-items: center;
+        height: 50px;
+        ul{display: flex;}
+       
+        li{ 
+            border-left: 1px solid rgb(255, 255, 255);
+           cursor: pointer;
+            display: flex;
+            align-items: center;
+            p{
+                margin-left: 2.250em; 
+                margin-right: 2.250em;
+                font-size: 1em;
+                
+            }
+        }
+        svg{
+            height: 0.875em;
+            width: 20px;
+            fill: white;
+        }
+    }
+}
+/* css para o main*/
+main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    height: 32.250em;
+   
+    
+    .TopArtist{
+        h1{
+            font-size: 1.3em;
+        }
+        position: absolute;
+        left: 0%;
+        top: 25%;
+        height: 9.37em;
+        width: 9.37em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        li{
+            margin-top: 7px;
+        }
+    }
+    .News{
+
+        margin-top: 0.9em;
+        flex-grow: 4;
+        flex-basis: auto;
+        width: 25em;
+        height: fit-content;
+        background-color: #ffff64;
+        .NewsHeader{
+            h1{
+                font-size: 1.9em;
+            }
+        }
+        p{
+            margin-top: 0.5em;
+            margin-bottom: 0.1;
+        }
+        img{
+            margin-top: 0.7em;
+            object-fit: cover;
+          width: 25em;
+          height: 20em;
+        }
+    }
+}
+/*css para o footer*/
+footer{
+    position: absolute;
+    display: flex;
+    bottom: 0%;
+    width: 100%;
+    height: fit-content;
+    padding-top: 1em;
+    margin-top: 1em;
+    background: #121212;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    svg{
+        height: 1.875em;
+        width: 35px;
+        fill: white;
+    }
+    h1{
+        float: right;
+       font-size: 1.2em;
+        word-break: break-all;
+    }
+    ul{
+        margin-top: 0.1em;
+        display: flex;
+        li{
+            cursor: pointer;
+            margin-right: 0.9em;
+        }
+    }
+}
+/* SideBar*/
+.TopArtist{
+    background: #ffff64;
+   
+}
