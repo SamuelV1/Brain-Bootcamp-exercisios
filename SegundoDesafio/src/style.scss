@@ -90,7 +90,6 @@ header{
     .Register{
         display: flex;
     }
-    
 }
 
 @media(max-width: 660px){
@@ -223,9 +222,13 @@ main{
 }
 /*css para o footer*/
 footer{
+    @media(max-width: 414px){
+        display: none;
+        
+    }
     position: absolute;
     display: flex;
-    bottom: 0vh;
+    bottom: 0%;
     width: 100%;
     height: fit-content;
     padding-top: 1em;
