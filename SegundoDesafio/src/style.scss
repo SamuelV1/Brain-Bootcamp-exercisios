@@ -62,6 +62,48 @@ header{
         }
         font-size: 1.8em;
     }
+    #MobileMenu{
+        display: flex;
+       position: absolute;
+
+        height: 100%;
+        width: 100%;
+        top: 0%;
+        bottom: 0%;
+       #transaparente{
+           background-color: black;
+           opacity: 0.5;
+           height: 100%;
+           
+        img{
+            width: 25px;
+            height: 1.5em;
+            opacity: 1;
+        }
+       }
+        .Menu{
+            .network{
+                display: none;
+            }
+            
+            display: flex;
+            .MenuLinks{
+                align-items: baseline;
+            }
+            ul{
+                margin-top: 50%;
+                display: flex;
+                flex-direction: column;
+                li{
+                    margin-top: 1em;
+                    justify-content: center;
+                    p{
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+    }
     #logo{
         :hover{
             cursor: pointer;
@@ -75,6 +117,7 @@ header{
     #menu{
         @media (max-width: 660px){
             display: flex;
+            
         }
         display: none;
         
@@ -112,6 +155,11 @@ header{
         font-weight: bolder;
         align-items: center;
         height: 50px;
+        .network{
+            #CloseMenu{
+                display: none;
+            }
+        }
         ul{display: flex;}
        
         li{ 
@@ -126,11 +174,45 @@ header{
                 
             }
         }
+
         svg{
             height: 0.875em;
             width: 20px;
             fill: white;
         }
+    }
+}
+
+.TopArtist{
+    @media (max-width: 660px){
+       
+            position: static;
+        display: flex;
+        width: 90%;
+        margin-top: 0.5em;
+        margin-left: 1em;
+        border-radius: 10px;
+        ol{
+            margin: 0;
+        }
+    }
+    h1{
+        font-size: 1.3em;
+    }
+    position: absolute;
+    left: 0%;
+    top: 25%;
+    width: 9.37em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    word-break: normal;
+    li{
+        cursor: pointer;
+        margin-top: 7px;
+        
     }
 }
 /* css para o main*/
@@ -149,36 +231,6 @@ main{
     justify-content: center;
     width: 100%;
     height: 32.250em;
-   
-    
-    .TopArtist{
-        @media (max-width: 660px){
-           
-                position: static;
-            display: flex;
-            margin-top: 1em;
-            width: 90%;
-            
-        }
-        h1{
-            font-size: 1.3em;
-        }
-        position: absolute;
-        left: 0%;
-        top: 25%;
-        width: 9.37em;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        word-break: normal;
-        li{
-            cursor: pointer;
-            margin-top: 7px;
-            
-        }
-    }
 
     .News{
         @media (max-width: 460px) {
@@ -222,7 +274,7 @@ main{
 }
 /*css para o footer*/
 footer{
-    @media(max-width: 414px){
+    @media(max-width: 660px){
         display: none;
         
     }
