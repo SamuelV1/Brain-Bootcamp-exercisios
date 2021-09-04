@@ -1,0 +1,112 @@
+.cor{
+    width: 2em;
+    height: 2em;
+}
+tr img{
+    height: 3em;
+    width: 3em;
+}
+td{
+    text-align: -webkit-center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.tittle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    -webkit-transition: color 2s, -webkit-transform 2s;
+    transition: color 2s, transform 2s;
+}
+h1{
+    margin-bottom: 0%;
+}
+.tittle span{
+    font-size: 0.7em;
+}
+.tittle:hover{
+    color: rgb(255, 148, 166);
+    -webkit-transform: ease-out;;
+    transform: ease-out;
+    cursor: pointer;
+}
+#Mobile{
+    display: none;
+   
+}
+@media(max-width: 660px){
+    #hoverhint{
+        display: none;
+    }
+  #Mobile{
+      display: flex;
+    }  
+}
+form{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3em;
+}
+label{
+    font-family: 'Poppins', sans-serif;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 8em;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid rgb(255, 148, 166);
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px rgb(255, 148, 166);
+	-webkit-box-shadow: inset 0px 1px 0px 0px  rgb(255, 148, 166);
+	box-shadow: inset 0px 1px 0px 0px rgb(255, 148, 166);
+	background-color: rgb(255, 148, 166);
+	border: 1px solid  rgb(255, 148, 166);
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 2em;
+}
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+	background:linear-gradient(to bottom,  rgb(255, 148, 166) 5%,  rgb(175, 114, 124) 100%);
+	background-color: rgb(255, 148, 166);
+}
+
+thead{
+    background-color: black;
+    color:  rgb(255, 148, 166);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
