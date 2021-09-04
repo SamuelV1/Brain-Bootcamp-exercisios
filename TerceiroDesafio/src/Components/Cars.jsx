@@ -2,9 +2,6 @@ import React from 'react'
 import '../Style/cars.css'
 
 export default function Cars({ CarData, GetData }) {
-    function deletarVeiculo(rowId) {
-        serverDeleter(CarData[rowId])
-    }
     async function serverDeleter(Data) {
         await fetch('http://localhost:3333/cars', {
             method: 'DELETE',
@@ -31,7 +28,7 @@ export default function Cars({ CarData, GetData }) {
                 </tr>
             </thead>
             <tbody>{CarData.length >= 1 ? (CarData.map((Cars, idx) => (
-                <tr className='' key={idx}><td>{Cars.brandModel}</td><td>{Cars.plate}</td><td>{Cars.year}</td><td><img src={Cars.image} alt="Vehicle" /></td><td><div className="cor" style={{ backgroundColor: `${Cars.color}` }}></div></td><td><button data-user={idx} onClick={(e) => (deletarVeiculo(e.target.dataset.user))}>X</button></td></tr>
+                <tr className='' key={idx}><td>{Cars.brandModel}</td><td>{Cars.plate}</td><td>{Cars.year}</td><td><img src={Cars.image} alt="Vehicle" /></td><td><div className="cor" style={{ backgroundColor: `${Cars.color}` }}></div></td><td><button data-user={idx} onClick={(e) => (serverDeleter(CarData[e.target.dataset.user]))}>X</button></td></tr>
             ))) : <tr><td>Nenhum carro encontrado</td></tr>}</tbody>
 
         </table>
