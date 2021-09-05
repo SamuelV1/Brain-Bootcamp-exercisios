@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Cars from './Components/Cars'
+/*Toast import */
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function App() {
 
   const [info, setInfo] = useState({ Marca: "", Ano: "", Placa: "", Url: "", Cor: "" })
   /*um set data pra info local e outro pra info do servidor e mais um pra identificar erros*/
   const [CarData, setData] = useState({})
-  const [erro, setErro] = useState()
   /**/
   async function GetData() {
     await fetch(`http://localhost:3333/cars`)
@@ -36,7 +38,7 @@ export default function App() {
       headers: { "Content-type": "application/json; charset=UTF-8" }
     })
       .then(response => response.json())
-      .then(json => json.error === true ? setErro(json.message) : GetData())
+      .then(json => json.error === true ? toast.error(json.message) : GetData())
   }
 
   function myChangeHandler(event) {
@@ -50,7 +52,7 @@ export default function App() {
         <span id='hoverhint'>Hover Us ;)</span>
         <span id='Mobile'>Tap us ;)</span>
       </div>
-      {erro === undefined ? "" : <div className='ErrorToast'><span>{erro}</span></div>}
+      <ToastContainer hideProgressBar={true} closeOnClick autoClose={1000} />
 
       <form className='form-style-8' action="" onSubmit={onSubmitTask}>
         <label htmlFor="Nome">Marca</label>
