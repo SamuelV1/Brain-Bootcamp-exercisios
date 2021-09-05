@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Cars from './Components/Cars'
-/*Toast import */
-
-import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function App() {
 
