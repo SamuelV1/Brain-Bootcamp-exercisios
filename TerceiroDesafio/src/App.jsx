@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Cars from './Components/Cars'
 /*Toast import */
-import { toast, ToastContainer } from 'react-toastify'
+
 import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function App() {
@@ -38,7 +38,7 @@ export default function App() {
       headers: { "Content-type": "application/json; charset=UTF-8" }
     })
       .then(response => response.json())
-      .then(json => json.error === true ? toast.error(json.message) : GetData())
+      .then(json => json.error === true ? console.log(json) : GetData())
   }
 
   function myChangeHandler(event) {
@@ -52,8 +52,6 @@ export default function App() {
         <span id='hoverhint'>Hover Us ;)</span>
         <span id='Mobile'>Tap us ;)</span>
       </div>
-      <ToastContainer hideProgressBar={true} closeOnClick autoClose={1000} />
-
       <form className='form-style-8' action="" onSubmit={onSubmitTask}>
         <label htmlFor="Nome">Marca</label>
         <input
