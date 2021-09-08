@@ -6,6 +6,7 @@ export default function App() {
   const [info, setInfo] = useState({ Marca: "", Ano: "", Placa: "", Url: "", Cor: "" })
   /*um set data pra info local e outro pra info do servidor e mais um pra identificar erros*/
   const [CarData, setData] = useState({})
+  const [erro, setErro] = useState()
   /**/
   async function GetData() {
     await fetch(`http://localhost:3333/cars`)
@@ -35,7 +36,7 @@ export default function App() {
       headers: { "Content-type": "application/json; charset=UTF-8" }
     })
       .then(response => response.json())
-      .then(json => json.error === true ? console.log(json) : GetData())
+      .then(json => json.error === true ? setErro(json.message) : GetData())
   }
 
   function myChangeHandler(event) {
@@ -49,6 +50,7 @@ export default function App() {
         <span id='hoverhint'>Hover Us ;)</span>
         <span id='Mobile'>Tap us ;)</span>
       </div>
+      {erro === undefined ? "" : <div className='ErrorToast'><span>{erro}</span></div>}
       <form className='form-style-8' action="" onSubmit={onSubmitTask}>
         <label htmlFor="Nome">Marca</label>
         <input
@@ -64,7 +66,7 @@ export default function App() {
         <input placeholder="Ano" type="number" id='Ano' name='Ano' min="1900" max="9999" required onChange={myChangeHandler} />
 
         <label htmlFor="Placa">Placa</label>
-        {/*Btw não faz sentido algum usar regex pra mudar a formação da placa sendo que as novas placas não seguem mais aquele formato... tornaria o codigo inutilizavel */}
+        {/*Btw */}
         <input placeholder="numero" type="text" required minLength="7" maxLength="7" onChange={myChangeHandler} name="Placa" />
 
         <label htmlFor="Foto">Url Foto Veiculo</label>
