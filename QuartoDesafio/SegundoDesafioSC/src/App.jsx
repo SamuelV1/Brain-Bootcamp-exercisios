@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Cars from './Components/Cars'
 /*Import de estilos StyledComponent */
-import { Form, Input, Label, Main, Submiter, Titulo, TituloSpan, MobileSpan, Tittle } from './Style/Style'
+import { Form, Input, Label, Main, Submiter, Titulo, TituloSpan, MobileSpan, Tittle, InputPlaca } from './Style/Style'
 
 export default function App() {
 
@@ -65,8 +65,8 @@ export default function App() {
         <Input placeholder="Ano" type="number" id='Ano' name='Ano' min="1900" max="9999" required onChange={myChangeHandler} />
 
         <Label htmlFor="Placa">Placa</Label>
-        {/*Btw não faz sentido algum usar regex pra mudar a formação da placa sendo que as novas placas não seguem mais aquele formato... tornaria o codigo inutilizavel */}
-        <Input placeholder="numero" type="text" required minLength="7" maxLength="7" onChange={myChangeHandler} name="Placa" />
+        {/*A tag pattern do */}
+        <InputPlaca id='Placa' placeholder="Placa Do Veiculo" pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}" type="text" required minLength="7" maxLength="7" onChange={myChangeHandler} name="Placa" />
 
         <Label htmlFor="Foto">Url Foto Veiculo</Label>
         <Input type='url' placeholder='Url' name='Url' onChange={myChangeHandler} />

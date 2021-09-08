@@ -15,6 +15,28 @@ box-sizing: border-box;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 `;
+// acabei criando outro style por que esse e o unico que eu vou mudar o placeholder (talvez possivel com props)
+export const InputPlaca = styled.input`
+box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 8em;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid rgb(255, 148, 166);
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+    text-transform: uppercase;
+
+    ::-webkit-input-placeholder {
+        text-transform: lowercase;
+    }
+
+`
 
 export const Form = styled.form`
  margin-top: 2em;
