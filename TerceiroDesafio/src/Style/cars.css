@@ -121,3 +121,11 @@ thead{
     background-color:rgb(255, 148, 166);
     border-radius: 4px;
 }
+
+#Placa{
+    text-transform: uppercase;
+}
+
+#Placa ::-webkit-input-placeholder {
+        text-transform: lowercase;
+}

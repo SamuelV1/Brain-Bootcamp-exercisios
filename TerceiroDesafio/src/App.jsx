@@ -67,7 +67,7 @@ export default function App() {
 
         <label htmlFor="Placa">Placa</label>
         {/*Btw */}
-        <input placeholder="numero" type="text" required minLength="7" maxLength="7" onChange={myChangeHandler} name="Placa" />
+        <input id="Placa" placeholder="numero" type="text" required pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}" onChange={myChangeHandler} name="Placa" />
 
         <label htmlFor="Foto">Url Foto Veiculo</label>
         <input type='url' placeholder='Url' name='Url' onChange={myChangeHandler} />
