@@ -228,6 +228,7 @@ export const TopNews = styled.aside`
        height: fit-content;
        padding-bottom: 0.5em;
        margin-bottom: 1em;
+      
        ol{
            margin: 0;
        }
@@ -238,8 +239,9 @@ export const TopNews = styled.aside`
    }
    position: absolute;
    left: 0%;
-   top: 25%;
-   width: 9.37em;
+   top: 15%;
+   width: 15em;
+   height: 34em;
    display: flex;
    flex-wrap: wrap;
    flex-direction: column;
@@ -247,8 +249,15 @@ export const TopNews = styled.aside`
    align-items: center;
    word-break: normal;
    li{
+       @media (max-width: 660px){
+       
+           margin-top: 7px;
+           font-size: 1em;
+       
+       }
        cursor: pointer;
-       margin-top: 7px;
+       margin-top: 25px;
+       font-size: large;
        
    }
 `
@@ -288,5 +297,36 @@ export const Feet = styled.footer`
             margin-right: 0.9em;
         }
     }
+`
+export const Botão = styled.button`
 
+        height: 50px;
+        border-radius: 8px;
+        font-weight: 500;
+        background: #ffff64;
+        color: ${props => props.outlined ? "#121212" : "black"};
+        font-family: 'Kanit', sans-serif;
+        padding: 0 15px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        cursor: pointer;
+        border: 0;
+        transition: filter 0.2s;
+
+        img{
+           
+           height: 20px;
+        }
+        ${props => props.outlined ? "border: 1px solid #121212;" : ""};
+       
+        &:not(:disabled):hover{
+            filter: brightness(0.9);
+        }
+        &:disabled{
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 `
