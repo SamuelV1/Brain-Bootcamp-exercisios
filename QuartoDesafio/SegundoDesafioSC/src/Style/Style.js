@@ -11,33 +11,18 @@ box-sizing: border-box;
 	border: none;
 	border-bottom: 1px solid rgb(255, 148, 166);
 	background: transparent;
-	margin-bottom: 10px;
-	font: 16px Arial, Helvetica, sans-serif;
-	height: 45px;
-`;
-// acabei criando outro style por que esse e o unico que eu vou mudar o placeholder (talvez possivel com props)
-export const InputPlaca = styled.input`
-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	outline: none;
-	display: block;
-	width: 8em;
-	padding: 7px;
-	border: none;
-	border-bottom: 1px solid rgb(255, 148, 166);
-	background: transparent;
-	margin-bottom: 10px;
-	font: 16px Arial, Helvetica, sans-serif;
-	height: 45px;
-    text-transform: uppercase;
 
-    ::-webkit-input-placeholder {
-        text-transform: lowercase;
-    }
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+
+    // Info = o input tem um span informando algo
+    margin-bottom: ${props => props.info ? "0px" : "10px"};
+`;
+export const InfoSpan = styled.span`
+color: red;
+font-size: small;
 
 `
-
 export const Form = styled.form`
  margin-top: 2em;
     display: flex;
@@ -62,11 +47,11 @@ export const Submiter = styled.input`
     margin-top: 2em;
     :hover{
         background:linear-gradient(to bottom,  rgb(255, 148, 166) 5%,  rgb(175, 114, 124) 100%);
-	background-color: rgb(255, 148, 166);
+	    background-color: rgb(255, 148, 166);
     }
 `
 export const Label = styled.label`
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 `
 export const Main = styled.main`
 display: flex;
@@ -101,10 +86,10 @@ export const MobileSpan = styled.span`
     font-size: 0.7em;
 `
 export const TituloSpan = styled.span`
-font-size: 0.7em;
+    font-size: 0.7em;
 `
 export const Thead = styled.thead`
-background-color: black;
+    background-color: black;
     color:  rgb(255, 148, 166);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 `
@@ -121,4 +106,37 @@ text-align: -webkit-center;
 `
 export const Tittle = styled.h1`
     margin-bottom: 0%;
+`
+
+export const ErroHandler = styled.div`
+
+    position: absolute;
+    top: 25%;
+    right: 1%;
+    width: 7em;
+    word-break: break-all;
+    font-size: 0.9em;
+    background-color:rgb(255, 148, 166);
+    border-radius: 4px;
+`
+
+export const Deletesvg = styled.img`
+width: 30px;
+height: 30px;
+`
+export const DeleteButton = styled.button`
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    border-radius: 10px;
+        :hover{
+            background-color: red;
+        }
+        img{
+            width: 30px;
+            height: 30px;
+        }
 `

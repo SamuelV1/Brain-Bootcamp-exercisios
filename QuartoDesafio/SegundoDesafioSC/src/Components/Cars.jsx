@@ -1,7 +1,11 @@
 import React from 'react'
 
-import { Thead, ColorDiv, Carimg, Td } from '../Style/Style'
+import { Thead, ColorDiv, Carimg, Td, DeleteButton, Deletesvg } from '../Style/Style'
+import deletesvg from '../assets/DeleteB.svg'
+
 export default function Cars({ CarData, GetData }) {
+
+    // as informações são enviada pra o servidor e ele deleta a magica do data ta la no botão que ja entrega pra essa função o data correto a ser deletado
     async function serverDeleter(Data) {
         await fetch('http://localhost:3333/cars', {
             method: 'DELETE',
@@ -19,7 +23,7 @@ export default function Cars({ CarData, GetData }) {
         <table>
             <Thead>
                 <tr>
-                    <th>brandModel</th>
+                    <th>Modelo</th>
                     <th>placa</th>
                     <th>year</th>
                     <th>Url</th>
@@ -27,8 +31,9 @@ export default function Cars({ CarData, GetData }) {
                     <th>excluir</th>
                 </tr>
             </Thead>
+            {/*o fator de o idx ir pra dentro do botão mas tambem pra o svg e que o click e registrado no svg as vezes (grande maioria das vezes) */}
             <tbody>{CarData.length >= 1 ? (CarData.map((Cars, idx) => (
-                <tr className='' key={idx}><Td>{Cars.brandModel}</Td><Td>{Cars.plate}</Td><Td>{Cars.year}</Td><Td><Carimg src={Cars.image} alt="Vehicle" /></Td><Td><ColorDiv className="cor" style={{ backgroundColor: `${Cars.color}` }}></ColorDiv></Td><Td><button data-user={idx} onClick={(e) => (serverDeleter(CarData[e.target.dataset.user]))}>X</button></Td></tr>
+                <tr className='' key={idx}><Td>{Cars.brandModel}</Td><Td>{Cars.plate}</Td><Td>{Cars.year}</Td><Td><Carimg src={Cars.image} alt="Vehicle" /></Td><Td><ColorDiv className="cor" style={{ backgroundColor: `${Cars.color}` }}></ColorDiv></Td><Td><DeleteButton data-user={idx} onClick={(e) => (serverDeleter(CarData[e.target.dataset.user]))}><Deletesvg data-user={idx} alt='Delete Svg' src={deletesvg}></Deletesvg></DeleteButton></Td></tr>
             ))) : <tr><Td>Nenhum carro encontrado</Td></tr>}</tbody>
 
         </table>

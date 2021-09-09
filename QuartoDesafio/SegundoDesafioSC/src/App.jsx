@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Cars from './Components/Cars'
 /*Import de estilos StyledComponent */
-import { Form, Input, Label, Main, Submiter, Titulo, TituloSpan, MobileSpan, Tittle, InputPlaca } from './Style/Style'
+import { Form, Input, Label, Main, Submiter, Titulo, TituloSpan, MobileSpan, Tittle, ErroHandler, InfoSpan } from './Style/Style'
 
 export default function App() {
 
@@ -9,6 +9,8 @@ export default function App() {
   /*um set data pra info local e outro pra info do servidor e mais um pra identificar erros*/
   const [CarData, setData] = useState({})
   /**/
+  const [erro, setErro] = useState()
+
   async function GetData() {
     await fetch(`http://localhost:3333/cars`)
       .then(response => response.json())
@@ -37,7 +39,7 @@ export default function App() {
       headers: { "Content-type": "application/json; charset=UTF-8" }
     })
       .then(response => response.json())
-      .then(json => json.error === true ? console.log(json.message) : GetData())
+      .then(json => json.error === true ? setErro(json.message) : GetData())
   }
 
   function myChangeHandler(event) {
@@ -51,6 +53,7 @@ export default function App() {
         <TituloSpan id='hoverhint'>Hover Us ;)</TituloSpan>
         <MobileSpan id='Mobile'>Tap us ;)</MobileSpan>
       </Titulo>
+      {erro === undefined ? "" : <ErroHandler><span>{erro}</span></ErroHandler>}
       <Form className='form-style-8' action="" onSubmit={onSubmitTask}>
         <Label htmlFor="Nome">Marca</Label>
         <Input
@@ -66,13 +69,14 @@ export default function App() {
 
         <Label htmlFor="Placa">Placa</Label>
         {/*A tag pattern do */}
-        <InputPlaca id='Placa' placeholder="Placa Do Veiculo" pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}" type="text" required minLength="7" maxLength="7" onChange={myChangeHandler} name="Placa" />
+        <Input info id='Placa' placeholder="Placa Do Veiculo" pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}" type="text" required onChange={myChangeHandler} name="Placa" />
+        <InfoSpan>*Tudo maiusculo e sem espaço</InfoSpan>
 
         <Label htmlFor="Foto">Url Foto Veiculo</Label>
         <Input type='url' placeholder='Url' name='Url' onChange={myChangeHandler} />
 
         <Label htmlFor="Cor">Cor do Veiculo</Label>
-        <Input type="color" name="Cor" required onChange={myChangeHandler} />
+        <Input type="color" defaultValue="#e919b5" name="Cor" required onChange={myChangeHandler} />
         <div><Submiter type="submit" /> </div>
       </Form>
       <Cars CarData={CarData} GetData={GetData}></Cars>
