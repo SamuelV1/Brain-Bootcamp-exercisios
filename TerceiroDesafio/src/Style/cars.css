@@ -123,9 +123,10 @@ thead{
 }
 
 #Placa{
-    text-transform: uppercase;
+    margin-bottom: 0%;
 }
 
-#Placa ::-webkit-input-placeholder {
-        text-transform: lowercase;
+#info{
+    color: red;
+    margin-bottom: 0.5em;
 }

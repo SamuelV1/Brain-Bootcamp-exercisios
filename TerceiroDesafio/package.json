@@ -38,5 +38,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.4.12"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

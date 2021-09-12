@@ -34,11 +34,11 @@ export default function App() {
       method: 'POST',
       mode: 'cors',
       body: JSON.stringify({
-        image: `${info.Url}`,
-        brandModel: `${info.Marca}`,
-        year: `${info.Ano}`,
-        plate: `${info.Placa}`,
-        color: `${info.Cor}`,
+        image: `${info.image}`,
+        brandModel: `${info.brandModel}`,
+        year: `${info.year}`,
+        plate: `${info.plate}`,
+        color: `${info.color}`,
       }),
       headers: { "Content-type": "application/json; charset=UTF-8" }
     })
@@ -75,7 +75,7 @@ export default function App() {
         <label htmlFor="Placa">Placa</label>
         {/*Btw */}
         <input id="Placa" placeholder="numero" type="text" required pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}" onChange={myChangeHandler} name="plate" />
-
+        <span id="info">*Tudo maiusculo e sem espaço</span>
         <label htmlFor="Foto">Url Foto Veiculo</label>
         <input type='url' placeholder='Url' name='image' onChange={myChangeHandler} />
 
