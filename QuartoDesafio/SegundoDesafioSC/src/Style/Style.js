@@ -98,8 +98,8 @@ export const ColorDiv = styled.div`
     height: 2em;
 `
 export const Carimg = styled.img`
-height: 3em;
-    width: 3em;
+height: 5em;
+    width: 5em;
 `
 export const Td = styled.td`
 text-align: -webkit-center;
